@@ -1,4 +1,4 @@
-import {Configuration} from 'webpack';
+import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 
@@ -15,10 +15,20 @@ const config: Configuration = {
   },
   module: {
     rules: [{
+      resourceQuery: /raw/,
+      type: 'asset/source',
+    }, {
+      test: /\.css$/,
+      resourceQuery: { not: /raw/ },
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
+    }, {
       test: /\.tsx?$/,
       loader: 'ts-loader',
       options: {
-        
+
       },
       exclude: /node_modules/
     }]

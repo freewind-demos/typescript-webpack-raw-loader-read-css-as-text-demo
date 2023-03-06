@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
+import './hello.css';
 // @ts-ignore
-import data from 'raw-loader!./data.txt'
+import data from './hello.css?raw'
 type Props = {};
 
 export const Hello: FC<Props> = ({}) => {
